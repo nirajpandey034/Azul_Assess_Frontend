@@ -36,6 +36,7 @@ export default function UserModal({ open, setOpen, ctaAction, actionType }) {
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     setImage(file);
+    console.log(image);
   };
   return (
     <div>
