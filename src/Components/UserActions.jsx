@@ -10,7 +10,7 @@ export default function UserActions() {
     await addUser(data);
   };
   return (
-    <Grid container sx={{ m: 5 }}>
+    <Grid container sx={{ m: 5, width: "unset" }}>
       <Grid item xs={12}>
         <Typography
           variant="h4"
