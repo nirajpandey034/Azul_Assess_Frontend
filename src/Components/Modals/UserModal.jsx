@@ -8,6 +8,8 @@ import {
   Stack,
 } from "@mui/material";
 
+import calculate_age from "../utils/AgeCalculator";
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -31,7 +33,12 @@ export default function UserModal({ open, setOpen, ctaAction, actionType }) {
   }, [actionType]);
 
   const dataChangeHandler = (field, value = "") => {
-    setUserData({ ...userData, ...{ [field]: value } });
+    if (field === "dob") {
+      const age = calculate_age(new Date(value));
+      setUserData({ ...userData, ...{ age: age, [field]: value } });
+    } else {
+      setUserData({ ...userData, ...{ [field]: value } });
+    }
   };
   const handleImageChange = (event) => {
     const file = event.target.files[0];
